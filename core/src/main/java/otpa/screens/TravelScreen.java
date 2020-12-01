@@ -1,7 +1,6 @@
 package otpa.screens;
 
 import java.util.Random;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.Input.Keys;
@@ -9,6 +8,7 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import otpa.Otpa;
+import otpa.util.Rand;
 
 public class TravelScreen implements Screen {
 
@@ -16,7 +16,6 @@ public class TravelScreen implements Screen {
 	OrthographicCamera camera;
 	float partialDay=0;
 	int day=1, dist=0;
-	Random rand=new Random();
 	String eventString="Day 1";
 	
 	public TravelScreen(final Otpa game) {
@@ -45,8 +44,8 @@ public class TravelScreen implements Screen {
 			day++;
 			partialDay-=1.0f;
 			dist+=18;
-			if(rand.nextInt(13)>8) {
-				eventString="Random event at " + rand.nextInt(24) + ":00";
+			if(Rand.nextInt(13)>8) {
+				eventString="Random event at " + Rand.nextInt(24) + ":00";
 			} else { eventString="Nothing happens";}
 		}
 		
